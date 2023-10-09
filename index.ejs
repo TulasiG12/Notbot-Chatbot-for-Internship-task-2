@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Reminder</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>WhatsApp Reminder</h1>
+  <form action="/setReminder" method="post">
+    <label for="time">Time:</label>
+    <input type="text" name="time" required placeholder="e.g., 2023-10-04T12:00:00">
+    <label for="message">Message:</label>
+    <input type="text" name="message" required placeholder="Your reminder message">
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" name="phoneNumber" required placeholder="Recipient's phone number">
+    <button type="submit">Set Reminder</button>
+  </form>
+  <h2>Reminders:</h2>
+  <ul>
+    <% reminders.forEach(reminder => { %>
+      <li><%= reminder.time %> - <%= reminder.message %> to <%= reminder.phoneNumber %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
